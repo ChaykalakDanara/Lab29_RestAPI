@@ -21,17 +21,17 @@ POST {{baseUrl}}/api/tasks
 Content-Type: application/json
 
 {
-"title": "зaдача из REST Client",
-"description": "Создана через þaйл .http",
-"priority": "High"
+    "title": "зaдача из REST Client",
+    "description": "Создана через þaйл .http",
+    "priority": "High"
 } 
 ###
 POST {{baseUrl}}/api/tasks
 Content-Type: application/json
 {
-"title": "",
-"description": "Описание без заголовка", 
-"priority": "Normal"
+    "title": "",
+    "description": "Описание без заголовка", 
+    "priority": "Normal"
 }
 
 ### PATCH
@@ -44,12 +44,30 @@ PATCH {{baseUrl}}/api/tasks/2/complete
 PUT {{baseUrl}}/api/tasks/1
 Content-Type: application/json
 {
-"title": "Изучить ASP.NET Core (обновлено)",
-"description": "Контроллеры, маршруты, DTO",
-"isCompleted": true,
-"priority": "High"
+    "title": "Изучить ASP.NET Core (обновлено)",
+    "description": "Контроллеры, маршруты, DTO",
+    "isCompleted": true,
+    "priority": "High"
 }
 ### DELETE
 ### 
 Send Request
 DELETE {{baseUrl}}/api/tasks/4
+
+### PATCH 
+PATCH {{baseUrl}}/api/Task/2/complete
+
+### DELETE 
+DELETE {{baseUrl}}/api/Task/4
+
+### Поиск задач
+GET {{baseUrl}}/api/Task/search?query=ASP
+
+### Задачи с высоким приоритетом
+GET {{baseUrl}}/api/Task/priority/High
+
+### Статистика
+GET {{baseUrl}}/api/Task/stats
+
+### Отсортированные задачи по приоритету
+GET {{baseUrl}}/api/Task/sorted?by=priority&desc=false
